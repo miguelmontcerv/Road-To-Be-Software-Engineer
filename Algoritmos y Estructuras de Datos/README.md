@@ -21,5 +21,5 @@ int search(int arr[], int n, int x)
 }
 ```
 <p align="center">
-  <img src="Linear-Search.png" width="110" height="80"/>
+  <img src="Linear-Search.png" width="200" height="150"/>
 </p>
