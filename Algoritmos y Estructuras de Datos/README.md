@@ -1,5 +1,5 @@
 16/09/2021
-# Algoritmos y Estructuras de Datos:
+# Algoritmos y Estructuras de Datos
 Los algoritmos y las estructuras de datos forman parte de la preparación elemental de un ingeniero en sistemas computacionales, estas dos materias, cuando las curse durante la carrera, me parecieron sumamente interesantes, aun así, por lo que he logrado notar en algunas de las juntas o videos que he visto sobre las grandes empresas, te suelen preguntar el concepto en general de muchos de los algoritmos y estructuras de datos, sus casos de uso y en cuales no se utilizan, además de su notación, es por ello que he decidido basarme en la página **Geeks for Geeks** para hacer un resumen de los más importantes. 
 
 Un **algoritmo** es una serie de pasos secuencial, ordenada y finita, que está diseñado para solucionar un problema. 
@@ -74,8 +74,6 @@ int binarySearch(int arr[], int l, int r, int x)
 //Primera llamada en el main
 int result = binarySearch(arr, 0, n - 1, x);
 ``` 
-**Memoria Adicional:** Es importante considerar que se utilizan variables extra, cuando usamos el algoritmo iterativo, no hay aumento en la cantidad de variables, es decir, es O(1), y cuando utilizamos el algoritmo recursivo, es O(Log n)
-
 **Paradigma del Algoritmo:** Decrease and Conquer.
 <p align="center">
   <img src="Binary-Search.png" width="380" height="225"/>
