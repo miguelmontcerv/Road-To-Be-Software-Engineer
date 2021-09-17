@@ -11,6 +11,8 @@ Antes de comenzar a ver los algoritmos, debemos mencionar que existe una notaci�
   <img src="bigO.png" width="380" height="225"/>
 </p>
 
+En la imagen falta la notación **O(n log n)**, esta se ubica debajo de **O(n^2)** y arriba de **O(n)**
+
 ### Searching and Sorting (Búsqueda y Ordenamiento):
 #### Linear Search (Búsqueda Lineal)
 Tomando en cuenta que tenemos un arreglo o lista enlazada de n elementos, se nos pide buscar un valor ‘a’ dentro de esta, la opción más natural es pararnos en el primer elemento de la lista (el que está más a la izquierda) e ir avanzando de uno en uno hasta llegar al elemento que estamos buscando, en el caso de que encuentre el numero, regresa el index en el que se encuentra, en el caso contrario, regresa un -1.
