@@ -23,5 +23,60 @@ int search(int arr[], int n, int x) //arr[] es el arreglo, n es el numero de ele
 }
 ```
 <p align="center">
-  <img src="Linear-Search.png" width="400" height="250"/>
+  <img src="Linear-Search.png" width="380" height="225"/>
+</p>
+
+#### Binary Search (Búsqueda Binaria)
+Tomando en cuenta un **arreglo ordenado**, debemos de buscar un elemento en esté, lo primero que tenemos que hacer es dividir el arreglo en dos partes, tomando un elemento de en medio, si el que estamos buscando es menor a esté elemento seleccionado, significa que el elemento a buscar se encuentra en el grupo de la izquierda, de lo contrario, es pertenece al segundo grupo, este algoritmo se pude realizar *recursivamente* o *cíclicamente*.
+
+Considero que es un algoritmo muy rápido de utilizar, su única desventaja es que el arreglo debe estar ya ordenado (los algoritmos de ordenamiento están más adelante), también, se puede cambiar un poco el algoritmo, para que en el caso de que el elemento se encuentre en medio, regrese inmediatamente su índice, de esta manera su complejidad podría llegar a ser *constante*
+**Mejor Caso:** O(log n)    **Peor Caso:**O(n)
+**El código *Recursivo* en C es el siguiente:**
+``` 
+int binarySearch(int arr[], int l, int r, int x)
+{
+    if (r >= l) {
+        int mid = l + (r - l) / 2;
+  
+        if (arr[mid] == x)
+            return mid;
+  
+        if (arr[mid] > x)
+            return binarySearch(arr, l, mid - 1, x);
+  
+        return binarySearch(arr, mid + 1, r, x);
+    }
+    return -1;
+}
+
+//Primera llamada en el main
+ int result = binarySearch(arr, 0, n - 1, x);
+``` 
+**El código *Recursivo* en C es el siguiente:**
+``` 
+int binarySearch(int arr[], int l, int r, int x)
+{
+    while (l <= r) {
+        int m = l + (r - l) / 2;
+
+        if (arr[m] == x)
+            return m;
+  
+        if (arr[m] < x)
+            l = m + 1;
+  
+        else
+            r = m - 1;
+    }
+  
+    return -1;
+}
+//Primera llamada en el main
+int result = binarySearch(arr, 0, n - 1, x);
+``` 
+**Memoria Adicional:** Es importante considerar que se utilizan variables extra, cuando usamos el algoritmo iterativo, no hay aumento en la cantidad de variables, es decir, es O(1), y cuando utilizamos el algoritmo recursivo, es O(Log n)
+
+**Paradigma del Algoritmo:** Decrease and Conquer.
+<p align="center">
+  <img src="Binary-Search.png" width="380" height="225"/>
 </p>
