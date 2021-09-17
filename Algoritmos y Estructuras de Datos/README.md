@@ -6,6 +6,11 @@ Un **algoritmo** es una serie de pasos secuencial, ordenada y finita, que está 
 
 Una **estructura de datos** es una forma de organizar la información para manipularla, organizarla, buscar e insertar datos de manera eficiente.
 ## Algoritmos
+Antes de comenzar a ver los algoritmos, debemos mencionar que existe una notación conocida como BigO donde se menciona en terminos de N, de manera muy general cual es la complejidad computacional de cada algorimo, esta imagen puede ser de gran ayuda:
+<p align="center">
+  <img src="bigO.png" width="380" height="225"/>
+</p>
+
 ### Searching and Sorting (Búsqueda y Ordenamiento):
 #### Linear Search (Búsqueda Lineal)
 Tomando en cuenta que tenemos un arreglo o lista enlazada de n elementos, se nos pide buscar un valor ‘a’ dentro de esta, la opción más natural es pararnos en el primer elemento de la lista (el que está más a la izquierda) e ir avanzando de uno en uno hasta llegar al elemento que estamos buscando, en el caso de que encuentre el numero, regresa el index en el que se encuentra, en el caso contrario, regresa un -1.
@@ -78,3 +83,4 @@ int result = binarySearch(arr, 0, n - 1, x);
 <p align="center">
   <img src="Binary-Search.png" width="380" height="225"/>
 </p>
+
