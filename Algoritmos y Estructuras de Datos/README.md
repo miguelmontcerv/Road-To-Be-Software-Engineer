@@ -16,7 +16,8 @@ En la imagen falta la notación **O(n log n)**, esta se ubica debajo de **O(n^2)
 ### Searching and Sorting (Búsqueda y Ordenamiento):
 #### Linear Search (Búsqueda Lineal)
 Tomando en cuenta que tenemos un arreglo o lista enlazada de n elementos, se nos pide buscar un valor ‘a’ dentro de esta, la opción más natural es pararnos en el primer elemento de la lista (el que está más a la izquierda) e ir avanzando de uno en uno hasta llegar al elemento que estamos buscando, en el caso de que encuentre el numero, regresa el index en el que se encuentra, en el caso contrario, regresa un -1.
-**Mejor Caso:** O(1)    **Peor Caso:** O(n)
+
+**Complejidad:** O(n)
 
 La búsqueda lineal es un algoritmo muy lento, es por ello que casi no se utiliza, existen dos maneras de “mejorarlo”, la primera es preguntando si el elemento se encuentra en alguna de las orillas del arreglo (Su peor caso sería O(n-1)) y la segunda es paralelizando el algoritmo.
 
@@ -40,7 +41,7 @@ Tomando en cuenta un **arreglo ordenado**, debemos de buscar un elemento en est�
 
 Considero que es un algoritmo muy rápido de utilizar, su única desventaja es que el arreglo debe estar ya ordenado (los algoritmos de ordenamiento están más adelante), también, se puede cambiar un poco el algoritmo, para que en el caso de que el elemento se encuentre en medio, regrese inmediatamente su índice, de esta manera su complejidad podría llegar a ser *constante*
 
-**Mejor Caso:** O(log n)    **Peor Caso:**O(n)
+**Complejidad:** O(log n)
 
 **El código *Recursivo* en C es el siguiente:**
 ``` 
@@ -90,4 +91,39 @@ int result = binarySearch(arr, 0, n - 1, x);
   <img src="Binary-Search.png" width="380" height="225"/>
 </p>
 
-d
+**Nota Importante:** *Puedes implementar este algoritmo utilizando la estructura de datos Árbol Binario de Búsqueda*
+
+### Jump Search
+Este algoritmo es interesante ya que trata de evitar que pases por todos los elementos de un *arreglo ordenado*, para evitar eso lo que hace es dar saltos e itera, lo cual reduce considerablemente el número de operaciones cuando se compara con una búsqueda lineal.
+
+**Complejidad:**O(sqrt(n))
+
+*Es menos eficiente que Busqueda Binaria*
+
+**El código en Python es el siguiente:**
+``` 
+def jumpSearch( arr , x , n ):     
+    step = math.sqrt(n)
+
+    prev = 0
+    while arr[int(min(step, n)-1)] < x:
+        prev = step
+        step += math.sqrt(n)
+        if prev >= n:
+            return -1
+     
+    while arr[int(prev)] < x:
+        prev += 1
+             
+        if prev == min(step, n):
+            return -1
+     
+    if arr[int(prev)] == x:
+        return prev
+     
+    return -1
+```
+### Exponential Search (Busqueda Exponencial)
+Busqueda exponencial es un algoritmo para *arreglos ordenados* que junta básicamente a *jump y binary*, ya que se posiciona en la posición 1 (indexado en cero y comprobando que el elemento no esté ahí) del arreglo, y va avanzando exponencialmente multiplicando i por 2, hasta que se llegue al valor deseado o a uno superior, si se llega a al esperado solo se regresa el index, de lo contrario, se represa el índice anterior y actual, se formara un rango donde es seguro que el elemento se encuentra, es ahí donde se aplica la búsqueda binaria.
+
+**Complejidad:** O(Log n) 
