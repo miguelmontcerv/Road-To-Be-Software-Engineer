@@ -127,3 +127,89 @@ def jumpSearch( arr , x , n ):
 Busqueda exponencial es un algoritmo para *arreglos ordenados* que junta básicamente a *jump y binary*, ya que se posiciona en la posición 1 (indexado en cero y comprobando que el elemento no esté ahí) del arreglo, y va avanzando exponencialmente multiplicando i por 2, hasta que se llegue al valor deseado o a uno superior, si se llega a al esperado solo se regresa el index, de lo contrario, se represa el índice anterior y actual, se formara un rango donde es seguro que el elemento se encuentra, es ahí donde se aplica la búsqueda binaria.
 
 **Complejidad:** O(Log n) 
+
+**El código en Python es el siguiente:**
+``` 
+def exponentialSearch(arr, n, x):
+    if arr[0] == x:
+        return 0
+
+    i = 1
+    while i < n and arr[i] <= x:
+        i = i * 2
+     
+    return binarySearch( arr, i / 2,
+                         min(i, n-1), x)
+``` 
+### Bubble Sort (Ordenamiento por el Método de Burbuja)
+Este algoritmo debe su nombre a que los elementos más ligeros tienen a “Subir” como una burbuja y los más ligeros se quedan en un solo lugar, en este caso, como estamos hablando de arreglos, en lugar de “subir”, el número se hace a la izquierda.
+
+Lo que hace este algoritmo es tomar el primer par de números y compararlos, pone más a la izquierda el menor y así avanza con el resto del arreglo; Este es un algoritmo **sumamente lento**, pero es una buena introducción al ordenamiento.
+
+**Complejidad:** O(n^2), Si el arreglo ya esta ordenado, la complejidad es *O(n)*
+
+**El código en C es el siguiente:**
+```
+void bubbleSort(int arr[], int n)
+{
+   int i, j;
+   for (i = 0; i < n-1; i++)      
+  
+       for (j = 0; j < n-i-1; j++) 
+           if (arr[j] > arr[j+1])
+              swap(&arr[j], &arr[j+1]);
+}
+
+void swap(int *xp, int *yp)
+{
+    int temp = *xp;
+    *xp = *yp;
+    *yp = temp;
+}
+```
+### Insertion Sort
+El método de inserción es un método muy natural, con esto me refiero a que, si no sabes nada de algoritmos, puede que realices un programa un poco similar a este, donde tomas un número, lo comparas con sus anteriores y si es menor, lo recorres hasta donde debe de ir con ayuda de un auxiliar, el nombre surge debido a que tomas un elemento, lo sacas y lo vueles a colocar *insertándolo* en la posición a la que corresponde.
+
+**Complejidad:** O(n^2)
+
+Es un algoritmo igual de tardado que el anterior, pero es mucho más interesante.
+
+**El código en C es el siguiente:**
+```
+void insertionSort(int arr[], int n)
+{
+    int i, key, j;
+    for (i = 1; i < n; i++) {
+        key = arr[i];
+        j = i - 1;
+ 
+        while (j >= 0 && arr[j] > key) {
+            arr[j + 1] = arr[j];
+            j = j - 1;
+        }
+        arr[j + 1] = key;
+    }
+}
+```
+### Selection Sort
+Este método es similar al anterior, solo que **En el anterior** se tomaba un elemento, se acomodaba y se seguía con el elemento siguiente, en este nuevo algoritmo, **se busca el número menor** luego se coloca al inicio, para continuar con el siguiente más chico y colocarlo después, pero realmente son muy parecidos y podemos llegar a confundirnos.
+
+**Complejidad:** O(n^2)
+
+**El código en C es el siguiente:**
+```
+void selectionSort(int arr[], int n)
+{
+    int i, j, min_idx;
+
+    for (i = 0; i < n-1; i++)
+    {
+        min_idx = i;
+        for (j = i+1; j < n; j++)
+          if (arr[j] < arr[min_idx])
+            min_idx = j;
+            
+        swap(&arr[min_idx], &arr[i]);
+    }
+}
+```
